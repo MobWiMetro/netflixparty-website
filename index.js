@@ -66,6 +66,16 @@ setInterval(function() {
   console.log('Total sessions: ' + String(Object.keys(sessions).length));
 }, 1000 * 60 * 60);
 
+// enforce HTTPS in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(function(req, res, next) {
+    if (req.protocol.toLowerCase() !== 'https') {
+      return res.redirect(301, 'https://' + req.hostname + req.url);
+    }
+    next();
+  });
+}
+
 // add CORS headers
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
