@@ -66,6 +66,14 @@ setInterval(function() {
   console.log('Total sessions: ' + String(Object.keys(sessions).length));
 }, 1000 * 60 * 60);
 
+// add CORS headers
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
+
 // landing page
 app.get('/', function(req, res) {
   res.render('index.garnet');
