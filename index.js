@@ -105,7 +105,7 @@ app.post('/sessions/create', function(req, res) {
   // create the session
   var now = new Date();
   var session = {
-    id: uuid.v4(),
+    id: uuid.v4().replace(/-/g, '').substr(16),
     lastActivity: now,
     lastKnownTime: 0,
     lastKnownTimeUpdatedAt: now,
