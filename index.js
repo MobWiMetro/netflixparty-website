@@ -69,8 +69,19 @@ setInterval(function() {
 // enforce HTTPS in production
 if (process.env.NODE_ENV === 'production') {
   app.use(function(req, res, next) {
-    if (req.protocol.toLowerCase() !== 'https') {
-      return res.redirect(301, 'https://' + req.hostname + req.url);
+    var protocol = req.protocol.toLowerCase();
+
+    // check for protocol from CloudFlare
+    if (req.headers['Cf-Visitor'] || req.headers['cf-visitor']) {
+      var visitor = JSON.parse(req.headers['Cf-Visitor'] || req.headers['cf-visitor']);
+      if (visitor['scheme']) {
+        protocol = visitor['scheme'].toLowerCase();
+      }
+    }
+
+    if (protocol !== 'https') {
+      res.redirect(301, 'https://' + req.hostname + req.url);
+      return;
     }
     next();
   });
