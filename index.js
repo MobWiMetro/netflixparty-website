@@ -186,6 +186,7 @@ app.post('/sessions/:id/update', function(req, res) {
   }
 
   // update the session
+  sessions[sessionId].lastActivity = new Date();
   sessions[sessionId].lastKnownTime = req.body.lastKnownTime;
   sessions[sessionId].state = req.body.state;
 
@@ -209,6 +210,9 @@ app.get('/sessions/:id', function(req, res) {
     res.status(404).send('Unknown session id: ' + sessionId);
     return;
   }
+
+  // pet the watchdog
+  sessions[sessionId].lastActivity = new Date();
 
   // response
   res.json(sessions[sessionId]);
