@@ -141,7 +141,6 @@ app.post('/sessions/create', function(req, res) {
 
 // POST /sessions/:id/update
 // request {
-//   id: '110ec58a-a0f2-4ac4-8393-c866d813b8d1',
 //   lastKnownTime: 123,
 //   state: 'playing' | 'paused'
 // }
@@ -186,8 +185,10 @@ app.post('/sessions/:id/update', function(req, res) {
   }
 
   // update the session
-  sessions[sessionId].lastActivity = new Date();
+  var now = new Date();
+  sessions[sessionId].lastActivity = now;
   sessions[sessionId].lastKnownTime = req.body.lastKnownTime;
+  sessions[sessionId].lastKnownTimeUpdatedAt = now;
   sessions[sessionId].state = req.body.state;
 
   // response
