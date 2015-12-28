@@ -35,13 +35,13 @@ var uuid = require('node-uuid');
 
 // in-memory store of all the sessions
 // the keys are the session IDs (strings)
-// the values have the form {
-//   id: '110ec58a-a0f2-4ac4-8393-c866d813b8d1',
-//   lastActivity: new Date(),
-//   lastKnownTime: 123,
-//   lastKnownTimeUpdatedAt: new Date(),
-//   state: 'playing' | 'paused',
-//   videoId: 123
+// the values have the form: {
+//   id: '84dba68dcea2952c',             // first 8 octets of a UUID
+//   lastActivity: new Date(),           // used to find old sessions to vacuum
+//   lastKnownTime: 123,                 // milliseconds from the start of the video
+//   lastKnownTimeUpdatedAt: new Date(), // when we last received a time update
+//   state: 'playing' | 'paused',        // whether the video is playing or paused
+//   videoId: 123                        // Netflix id the video
 // }
 var sessions = {};
 
@@ -105,7 +105,7 @@ app.get('/', function(req, res) {
 //   videoId: 123
 // }
 // response {
-//   id: '110ec58a-a0f2-4ac4-8393-c866d813b8d1',
+//   id: '84dba68dcea2952c',
 //   lastActivity: new Date(),
 //   lastKnownTime: 123,
 //   lastKnownTimeUpdatedAt: new Date(),
@@ -145,7 +145,7 @@ app.post('/sessions/create', function(req, res) {
 //   state: 'playing' | 'paused'
 // }
 // response {
-//   id: '110ec58a-a0f2-4ac4-8393-c866d813b8d1',
+//   id: '84dba68dcea2952c',
 //   lastActivity: new Date(),
 //   lastKnownTime: 123,
 //   lastKnownTimeUpdatedAt: new Date(),
@@ -197,7 +197,7 @@ app.post('/sessions/:id/update', function(req, res) {
 
 // GET /sessions/:id
 // response {
-//   id: '110ec58a-a0f2-4ac4-8393-c866d813b8d1',
+//   id: '84dba68dcea2952c',
 //   lastActivity: new Date(),
 //   lastKnownTime: 123,
 //   lastKnownTimeUpdatedAt: new Date(),
