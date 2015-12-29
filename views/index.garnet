@@ -2,7 +2,7 @@
 <html lang=en>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="A tool for synchronized Netflix consumption." />
+    <meta name="description" content="A Chrome extension to synchronize Netflix video playback on multiple computers. You know, for Netflix nights with that long-distance special someone. Any number of people can join a session, but each person must have a Netflix account." />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Netflix Party</title>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
@@ -81,8 +81,8 @@
     <div class="container">
       <h1>Netflix Party</h1>
       <p>Hello!</p>
-      <p>Netflix Party lets you synchronize Netflix video playback with other people on different computers. For example, you could use it to watch a movie with a special someone in another land. Any number of people can join a session, but each person must have a Netflix account.</p>
-      <p>Get the Chrome extension <a href="https://chrome.google.com/webstore/detail/netflix-party/oocalimimngaihdkbihfgmpkcpnmlaoa">here</a>!</p>
+      <p>Netflix Party is a Chrome extension to synchronize Netflix video playback on multiple computers. You know, for Netflix nights with that long-distance special someone. Any number of people can join a session, but each person must have a Netflix account.</p>
+      <p>Get it <a href="https://chrome.google.com/webstore/detail/netflix-party/oocalimimngaihdkbihfgmpkcpnmlaoa">here</a>!</p>
       <p>Best,<br /><a href="https://www.stephanboyer.com">Stephan</a></p>
     </div>
     <script>
