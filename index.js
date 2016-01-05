@@ -429,6 +429,9 @@ io.on('connection', function(socket) {
     sessions[users[userId].sessionId].lastKnownTimeUpdatedAt = new Date(data.lastKnownTimeUpdatedAt);
     sessions[users[userId].sessionId].state = data.state;
 
+    fn();
+    console.log('User ' + userId + ' updated session ' + users[userId].sessionId + ' with time ' + String(data.lastKnownTime) + ' and state ' + data.state + ' for epoch ' + String(data.lastKnownTimeUpdatedAt) + '.');
+
     lodash.forEach(sessions[users[userId].sessionId].userIds, function(id) {
       if (id !== userId) {
         console.log('Sending update to user ' + id + '.');
@@ -439,9 +442,6 @@ io.on('connection', function(socket) {
         });
       }
     });
-
-    fn();
-    console.log('User ' + userId + ' updated session ' + users[userId].sessionId + ' with time ' + String(data.lastKnownTime) + ' and state ' + data.state + ' for epoch ' + String(data.lastKnownTimeUpdatedAt) + '.');
   });
 
   socket.on('ping', function(data, fn) {
