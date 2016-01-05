@@ -320,7 +320,7 @@ io.on('connection', function(socket) {
 
     fn({
       lastKnownTime: sessions[data.sessionId].lastKnownTime,
-      lastKnownTimeUpdatedAt: sessions[data.sessionId].lastKnownTimeUpdatedAt,
+      lastKnownTimeUpdatedAt: sessions[data.sessionId].lastKnownTimeUpdatedAt.getTime(),
       state: sessions[data.sessionId].state
     });
   });
@@ -437,7 +437,7 @@ io.on('connection', function(socket) {
         console.log('Sending update to user ' + id + '.');
         users[id].socket.emit('update', {
           lastKnownTime: sessions[users[userId].sessionId].lastKnownTime,
-          lastKnownTimeUpdatedAt: sessions[users[userId].sessionId].lastKnownTimeUpdatedAt,
+          lastKnownTimeUpdatedAt: sessions[users[userId].sessionId].lastKnownTimeUpdatedAt.getTime(),
           state: sessions[users[userId].sessionId].state
         });
       }
