@@ -38,27 +38,6 @@ var favicon = require('serve-favicon');
 var path = require('path');
 app.use(favicon(path.join(__dirname, 'static/favicon.ico')));
 
-// enforce HTTPS in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(function(req, res, next) {
-    var protocol = req.protocol.toLowerCase();
-
-    // check for protocol from CloudFlare
-    if (req.headers['Cf-Visitor'] || req.headers['cf-visitor']) {
-      var visitor = JSON.parse(req.headers['Cf-Visitor'] || req.headers['cf-visitor']);
-      if (visitor['scheme']) {
-        protocol = visitor['scheme'].toLowerCase();
-      }
-    }
-
-    if (protocol !== 'https') {
-      res.redirect(301, 'https://' + req.hostname + req.url);
-      return;
-    }
-    next();
-  });
-}
-
 // add CORS headers
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -127,6 +106,28 @@ setInterval(function() {
 
 // landing page
 app.get('/', function(req, res) {
+  // enforce HTTPS in production
+  // right now we only enforce HTTPS for web endpoints.
+  // we don't use HTTPS (WSS) for websockets because CloudFlare (our CDN) only
+  // supports websockets for "enterprise" customers. so for now we use HTTP
+  // (WS) for websockets and bypass CloudFlare.
+  if (process.env.NODE_ENV === 'production') {
+    var protocol = req.protocol.toLowerCase();
+
+    // check for protocol from CloudFlare
+    if (req.headers['Cf-Visitor'] || req.headers['cf-visitor']) {
+      var visitor = JSON.parse(req.headers['Cf-Visitor'] || req.headers['cf-visitor']);
+      if (visitor['scheme']) {
+        protocol = visitor['scheme'].toLowerCase();
+      }
+    }
+
+    if (protocol !== 'https') {
+      res.redirect(301, 'https://' + req.hostname + req.url);
+      return;
+    }
+  }
+
   res.render('index.garnet');
 });
 
