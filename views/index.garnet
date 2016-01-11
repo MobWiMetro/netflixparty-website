@@ -183,7 +183,7 @@
       <h1>Netflix Party</h1>
       <p class="subheading">Made with <span class="heart">♡</span> by <a href="https://www.stephanboyer.com">Stephan</a></p>
       <p>Netflix Party is a Chrome extension for watching Netflix remotely with others, e.g., for movie nights with that long-distance special someone. It synchronizes video playback and also features real-time chat.</p>
-      <a href="https://static.netflixparty.com/screenshot.png"><img class="banner" src="https://static.netflixparty.com/screenshot.png" /></a>
+      <a href="https://static.netflixparty.com/screenshot-large.png"><img class="banner" src="https://static.netflixparty.com/screenshot-small.png" /></a>
       <h2>Step 1: Install Netflix Party</h2>
       <p class="show-chrome small-top-margin">Click <a href="/" onclick="chrome.webstore.install(); event.preventDefault(); event.stopPropagation();">here</a> to install.</p>
       <p class="hide-chrome small-top-margin">Open this page in <a href="https://www.google.com/chrome/">Chrome</a> first.</p>
