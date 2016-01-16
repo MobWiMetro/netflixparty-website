@@ -170,10 +170,10 @@
     </style>
     <script>
       $(function() {
-        if (typeof chrome === 'undefined') {
-          $('.show-chrome').hide();
-        } else {
+        if (typeof chrome === 'object' && chrome !== null && typeof chrome.webstore === 'object' && chrome.webstore !== null && typeof chrome.webstore.install === 'function') {
           $('.hide-chrome').hide();
+        } else {
+          $('.show-chrome').hide();
         }
       });
     </script>
