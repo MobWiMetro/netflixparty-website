@@ -1,6 +1,6 @@
 # Netflix Party
 
-Netflix Party is a Chrome extension for watching Netflix remotely with others, e.g., for movie nights with that long-distance special someone. It synchronizes video playback and also features real-time chat.
+Netflix Party is a Chrome extension for watching Netflix remotely with friends, e.g., for movie nights with that long-distance special someone. It synchronizes video playback and adds group chat.
 
 This is the source for the [website](https://www.netflixparty.com). The source for the Chrome extension can be found [here](https://github.com/boyers/netflixparty-chrome), and the source for the server can be found [here](https://github.com/boyers/netflixparty-server). The Chrome extension is published [here](https://chrome.google.com/webstore/detail/netflix-party/oocalimimngaihdkbihfgmpkcpnmlaoa) in the Chrome Web Store.
 
