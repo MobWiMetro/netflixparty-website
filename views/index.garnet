@@ -78,7 +78,7 @@
       }
 
       .subheading {
-        color: ccc;
+        color: #ccc;
         text-align: center;
         margin-top: 0;
       }
