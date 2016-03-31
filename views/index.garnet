@@ -63,6 +63,7 @@
       body {
         font-family: 'Lato', sans-serif;
         line-height: 1.4;
+        color: #222;
       }
 
       .container {
@@ -78,7 +79,7 @@
       }
 
       .subheading {
-        color: #ccc;
+        color: #999;
         text-align: center;
         margin-top: 0;
       }
