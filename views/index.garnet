@@ -104,8 +104,8 @@
       }
 
       .icon {
-        width: 19px;
-        height: 19px;
+        width: 28px;
+        height: 28px;
         display: inline-block;
         vertical-align: middle;
         position: relative;
@@ -191,7 +191,7 @@
       <h2>Step 2: Open a video in Netflix</h2>
       <p class="small-top-margin">For example, <a href="http://www.netflix.com/watch/70038134">Ice Age: The Meltdown</a>.</p>
       <h2>Step 3: Start or join a Netflix Party</h2>
-      <p class="small-top-margin">Click on the <img class="icon" src="https://static.netflixparty.com/icon.png" /> icon in the address bar to get the party started.</p>
+      <p class="small-top-margin">Click on the <img class="icon" src="https://static.netflixparty.com/np-icon.png" /> button next to the address bar to get the party started.</p>
     </div>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
